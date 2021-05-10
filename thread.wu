@@ -1,0 +1,4 @@
+import types {Source, Blob, Image, ModelData, Rasterizer, Sound, Canvas, Font, Material, Mesh, Model, Shader, ShaderBlock, Texture, Curve, Mat4, Quat, RandomGenerator, Vec2, Vec3, Vec4, Vectors, BallJoint, BoxShape, CapsuleShape, Collider, CylinderShape, DistanceJoint, HingeJoint, Joint, Shape, SliderJoint, SphereShape, World, Channel, Thread}
+
+getChannel: extern fun(str) -> Channel = "lovr.thread.getChannel"
+newThread: extern fun(any) -> Thread = "lovr.thread.newThread"

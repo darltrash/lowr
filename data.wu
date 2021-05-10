@@ -1,0 +1,7 @@
+import types {Source, Blob, Image, ModelData, Rasterizer, Sound}
+
+newBlob: extern fun(any, any?) -> Blob = "lovr.data.newBlob"
+newImage: extern fun(any, any?, str?, Blob?) -> Image = "lovr.data.newImage"
+newModelData: extern fun(any) -> ModelData = "lovr.data.newModelData"
+newRasterizer: extern fun(any, any?) -> Rasterizer = "lovr.data.newRasterizer"
+newSound: extern fun(any, any?, str?, float?, any?) -> Sound = "lovr.data.newSound"

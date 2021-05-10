@@ -1,0 +1,8 @@
+import types {Source, Blob, Image, ModelData, Rasterizer, Sound}
+
+clear: extern fun()  = "lovr.event.clear"
+poll: extern fun() -> any = "lovr.event.poll"
+pump: extern fun()  = "lovr.event.pump"
+push: extern fun(str, any?)  = "lovr.event.push"
+quit: extern fun(float)  = "lovr.event.quit"
+restart: extern fun()  = "lovr.event.restart"

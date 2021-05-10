@@ -1,0 +1,11 @@
+import types {Source, Blob, Image, ModelData, Rasterizer, Sound, Canvas, Font, Material, Mesh, Model, Shader, ShaderBlock, Texture, Curve, Mat4, Quat, RandomGenerator, Vec2, Vec3, Vec4, Vectors, BallJoint, BoxShape, CapsuleShape, Collider, CylinderShape, DistanceJoint, HingeJoint, Joint, Shape, SliderJoint, SphereShape, World}
+
+newBallJoint: extern fun(Collider, Collider?, float?, float?, float?) -> BallJoint = "lovr.physics.newBallJoint"
+newBoxShape: extern fun(float, float?, float?) -> BoxShape = "lovr.physics.newBoxShape"
+newCapsuleShape: extern fun(float, float?) -> CapsuleShape = "lovr.physics.newCapsuleShape"
+newCylinderShape: extern fun(float, float?) -> CylinderShape = "lovr.physics.newCylinderShape"
+newDistanceJoint: extern fun(Collider, Collider?, float?, float?, float?, float?, float?, float?) -> DistanceJoint = "lovr.physics.newDistanceJoint"
+newHingeJoint: extern fun(Collider, Collider?, float?, float?, float?, float?, float?, float?) -> HingeJoint = "lovr.physics.newHingeJoint"
+newSliderJoint: extern fun(Collider, Collider?, float?, float?, float?) -> SliderJoint = "lovr.physics.newSliderJoint"
+newSphereShape: extern fun(float) -> SphereShape = "lovr.physics.newSphereShape"
+newWorld: extern fun(float, float?, float?, bool?, any?) -> World = "lovr.physics.newWorld"

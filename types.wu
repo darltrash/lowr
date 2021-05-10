@@ -1,0 +1,551 @@
+Source: struct {}
+
+Source_T: trait {
+	clone: fun() -> Source,
+	getDirectivity: fun() -> (float, float?),
+	getDuration: fun(str) -> float,
+	getOrientation: fun() -> (float, float?, float?, float?),
+	getPose: fun() -> (float, float?, float?, float?, float?, float?, float?),
+	getPosition: fun() -> (float, float?, float?),
+	getRadius: fun() -> float,
+	getSound: fun() -> any,
+	getVolume: fun(str) -> float,
+	isEffectEnabled: fun(str) -> bool,
+	isLooping: fun() -> bool,
+	isPlaying: fun() -> bool,
+	pause: fun() ,
+	play: fun() -> bool,
+	seek: fun(float, str?) ,
+	setDirectivity: fun(float, float?) ,
+	setEffectEnabled: fun(str, bool?) ,
+	setLooping: fun(bool) ,
+	setOrientation: fun(float, float?, float?, float?) ,
+	setPose: fun(float, float?, float?, float?, float?, float?, float?) ,
+	setPosition: fun(float, float?, float?) ,
+	setRadius: fun(float) ,
+	setVolume: fun(float, str?) ,
+	stop: fun() ,
+	tell: fun(str) -> float,
+}
+
+Blob: struct {}
+
+Blob_T: trait {
+	getName: fun() -> str,
+	getPointer: fun() -> any,
+	getSize: fun() -> float,
+	getString: fun() -> str,
+}
+
+Image: struct {}
+
+Image_T: trait {
+	encode: fun() -> Blob,
+	getBlob: fun() -> Blob,
+	getDimensions: fun() -> (float, float?),
+	getFormat: fun() -> str,
+	getHeight: fun() -> float,
+	getPixel: fun(float, float?) -> (float, float?, float?, float?),
+	getWidth: fun() -> float,
+	paste: fun(Image, float?, float?, float?, float?, float?, float?) ,
+	setPixel: fun(float, float?, float?, float?, float?, float?) ,
+}
+
+ModelData: struct {}
+
+ModelData_T: trait {
+}
+
+Rasterizer: struct {}
+
+Rasterizer_T: trait {
+	getAdvance: fun() -> float,
+	getAscent: fun() -> float,
+	getDescent: fun() -> float,
+	getGlyphCount: fun() -> float,
+	getHeight: fun() -> float,
+	getLineHeight: fun() -> float,
+	hasGlyphs: fun(any) -> bool,
+}
+
+Sound: struct {}
+
+Sound_T: trait {
+	getBlob: fun() -> Blob,
+	getChannelCount: fun() -> float,
+	getChannelLayout: fun() -> str,
+	getDuration: fun() -> float,
+	getFormat: fun() -> str,
+	getFrameCount: fun() -> float,
+	getFrames: fun(any, any?, any?, any?) -> (any, any?),
+	getSampleCount: fun() -> float,
+	getSampleRate: fun() -> float,
+	isCompressed: fun() -> bool,
+	isStream: fun() -> bool,
+	setFrames: fun(any, any?, any?, any?) -> float,
+}
+
+Canvas: struct {}
+
+Canvas_T: trait {
+	getDepthTexture: fun() -> any,
+	getDimensions: fun() -> (float, float?),
+	getHeight: fun() -> float,
+	getMSAA: fun() -> float,
+	getTexture: fun() -> any,
+	getWidth: fun() -> float,
+	isStereo: fun() -> bool,
+	newImage: fun(float) -> Image,
+	renderTo: fun(any, any?) ,
+	setTexture: fun(any) ,
+}
+
+Font: struct {}
+
+Font_T: trait {
+	getAscent: fun() -> float,
+	getBaseline: fun() -> float,
+	getDescent: fun() -> float,
+	getHeight: fun() -> float,
+	getLineHeight: fun() -> float,
+	getPixelDensity: fun() -> float,
+	getRasterizer: fun() -> Rasterizer,
+	getWidth: fun(str, float?) -> (float, float?),
+	hasGlyphs: fun(any) -> bool,
+	setLineHeight: fun(float) ,
+	setPixelDensity: fun(float) ,
+}
+
+Material: struct {}
+
+Material_T: trait {
+	getColor: fun(str) -> (float, float?, float?, float?),
+	getScalar: fun(str) -> float,
+	getTexture: fun(str) -> any,
+	getTransform: fun() -> (float, float?, float?, float?, float?),
+	setColor: fun(any, any?, any?, any?, float?) ,
+	setScalar: fun(str, float?) ,
+	setTexture: fun(any, any?) ,
+	setTransform: fun(float, float?, float?, float?, float?) ,
+}
+
+Mesh: struct {}
+
+Mesh_T: trait {
+	attachAttributes: fun(Mesh, any?, any?) ,
+	detachAttributes: fun(Mesh, any?) ,
+	draw: fun(any, any?, float?, float?, float?, float?, float?, float?, float?) ,
+	getDrawMode: fun() -> str,
+	getDrawRange: fun() -> (float, float?),
+	getMaterial: fun() -> Material,
+	getVertex: fun(float) -> float,
+	getVertexAttribute: fun(float, float?) -> float,
+	getVertexCount: fun() -> float,
+	getVertexFormat: fun() -> any,
+	getVertexMap: fun(any) -> any,
+	isAttributeEnabled: fun(str) -> bool,
+	setAttributeEnabled: fun(str, bool?) ,
+	setDrawMode: fun(str) ,
+	setDrawRange: fun(float, float?) ,
+	setMaterial: fun(Material) ,
+	setVertex: fun(float, float?) ,
+	setVertexAttribute: fun(float, float?, float?) ,
+	setVertexMap: fun(any, float?) ,
+	setVertices: fun(any, any?, any?) ,
+}
+
+Model: struct {}
+
+Model_T: trait {
+	animate: fun(any, any?, any?) ,
+	draw: fun(any, any?, float?, float?, float?, float?, float?, float?, float?) ,
+	getAABB: fun() -> (float, float?, float?, float?, float?, float?),
+	getAnimationCount: fun() -> float,
+	getAnimationDuration: fun() ,
+	getAnimationName: fun(float) -> str,
+	getMaterial: fun(any) -> Material,
+	getMaterialCount: fun() -> float,
+	getMaterialName: fun(float) -> str,
+	getNodeCount: fun() -> float,
+	getNodeName: fun(float) -> str,
+	getNodePose: fun(any, any?) -> (float, any?, any?, any?, any?, any?, any?),
+	hasJoints: fun() -> bool,
+	pose: fun(any, any?, any?, any?, any?, any?, any?, any?, any?) ,
+}
+
+Shader: struct {}
+
+Shader_T: trait {
+	getType: fun() -> str,
+	hasBlock: fun(str) -> bool,
+	hasUniform: fun(str) -> bool,
+	send: fun(str, any?) -> bool,
+	sendBlock: fun(str, any?, str?) ,
+	sendImage: fun(str, any?, any?, any?, any?, str?) ,
+}
+
+ShaderBlock: struct {}
+
+ShaderBlock_T: trait {
+	getOffset: fun(str) -> float,
+	getShaderCode: fun(str, str?) -> str,
+	getSize: fun() -> float,
+	getType: fun() -> str,
+	read: fun(str) -> any,
+	send: fun(any, any?, float?) -> float,
+}
+
+Texture: struct {}
+
+Texture_T: trait {
+	getCompareMode: fun() -> str,
+	getDepth: fun(float) -> float,
+	getDimensions: fun(float) -> (float, float?, float?),
+	getFilter: fun() -> (str, float?),
+	getFormat: fun() -> str,
+	getHeight: fun(float) -> float,
+	getMipmapCount: fun() -> float,
+	getType: fun() -> str,
+	getWidth: fun(float) -> float,
+	getWrap: fun() -> (str, str?),
+	replacePixels: fun(Image, float?, float?, float?, float?) ,
+	setCompareMode: fun(str) ,
+	setFilter: fun(str, float?) ,
+	setWrap: fun(str, str?) ,
+}
+
+Curve: struct {}
+
+Curve_T: trait {
+	addPoint: fun(float, float?, float?, float?) ,
+	evaluate: fun(float) -> (float, float?, float?),
+	getPoint: fun(float) -> (float, float?, float?),
+	getPointCount: fun() -> float,
+	getTangent: fun(float) -> (float, float?, float?),
+	removePoint: fun(float) ,
+	render: fun(float, float?, float?) -> any,
+	setPoint: fun(float, float?, float?, float?) ,
+	slice: fun(float, float?) -> Curve,
+}
+
+Mat4: struct {}
+
+Mat4_T: trait {
+	fov: fun(float, float?, float?, float?, float?, float?) -> Mat4,
+	identity: fun() -> Mat4,
+	invert: fun() -> Mat4,
+	lookAt: fun(any, any?, any?) -> Mat4,
+	mul: fun(any) -> any,
+	orthographic: fun(float, float?, float?, float?, float?, float?) -> Mat4,
+	perspective: fun(float, float?, float?, float?) -> Mat4,
+	rotate: fun(any, float?, float?, float?) -> Mat4,
+	scale: fun(any, float?, float?) -> Mat4,
+	set: fun(any, any?, any?) -> Mat4,
+	target: fun(any, any?, any?) -> Mat4,
+	translate: fun(any, float?, float?) -> Mat4,
+	transpose: fun() -> Mat4,
+	unpack: fun(bool) -> float,
+}
+
+Quat: struct {}
+
+Quat_T: trait {
+	conjugate: fun() -> Quat,
+	direction: fun() -> any,
+	length: fun() -> float,
+	mul: fun(any) -> any,
+	normalize: fun() -> Quat,
+	set: fun(any, any?, float?, float?, bool?) -> any,
+	slerp: fun(Quat, float?) -> Quat,
+	unpack: fun(bool) -> (float, float?, float?, float?),
+}
+
+RandomGenerator: struct {}
+
+RandomGenerator_T: trait {
+	getSeed: fun() -> (float, float?),
+	getState: fun() -> str,
+	random: fun(float, float?) -> float,
+	randomNormal: fun(float, float?) -> float,
+	setSeed: fun() ,
+	setState: fun(str) ,
+}
+
+Vec2: struct {}
+
+Vec2_T: trait {
+	add: fun(any) -> Vec2,
+	distance: fun(Vec2) -> float,
+	div: fun(any) -> Vec2,
+	dot: fun(Vec2) -> float,
+	length: fun() -> float,
+	lerp: fun(Vec2, float?) -> Vec2,
+	mul: fun(any) -> Vec2,
+	normalize: fun() -> Vec2,
+	set: fun(any, float?) -> Vec2,
+	sub: fun(any) -> Vec2,
+	unpack: fun() -> (float, float?),
+}
+
+Vec3: struct {}
+
+Vec3_T: trait {
+	add: fun(any) -> Vec3,
+	cross: fun(Vec3) -> Vec3,
+	distance: fun(Vec3) -> float,
+	div: fun(any) -> Vec3,
+	dot: fun(Vec3) -> float,
+	length: fun() -> float,
+	lerp: fun(Vec3, float?) -> Vec3,
+	mul: fun(any) -> Vec3,
+	normalize: fun() -> Vec3,
+	set: fun(any, float?, float?) -> Vec3,
+	sub: fun(any) -> Vec3,
+	unpack: fun() -> (float, float?, float?),
+}
+
+Vec4: struct {}
+
+Vec4_T: trait {
+	add: fun(any) -> Vec4,
+	distance: fun(Vec4) -> float,
+	div: fun(any) -> Vec4,
+	dot: fun(Vec4) -> float,
+	length: fun() -> float,
+	lerp: fun(Vec4, float?) -> Vec4,
+	mul: fun(any) -> Vec4,
+	normalize: fun() -> Vec4,
+	set: fun(any, float?, float?, float?) -> Vec4,
+	sub: fun(any) -> Vec2,
+	unpack: fun() -> (float, float?, float?),
+}
+
+Vectors: struct {}
+
+Vectors_T: trait {
+}
+
+BallJoint: struct {}
+
+BallJoint_T: trait {
+	getAnchors: fun() -> (float, float?, float?, float?, float?, float?),
+	getResponseTime: fun() -> float,
+	getTightness: fun() -> float,
+	setAnchor: fun(float, float?, float?) ,
+	setResponseTime: fun(float) ,
+	setTightness: fun(float) ,
+}
+
+BoxShape: struct {}
+
+BoxShape_T: trait {
+	getDimensions: fun() -> (float, float?, float?),
+	setDimensions: fun(float, float?, float?) ,
+}
+
+CapsuleShape: struct {}
+
+CapsuleShape_T: trait {
+	getLength: fun() -> float,
+	getRadius: fun() -> float,
+	setLength: fun(float) ,
+	setRadius: fun(float) ,
+}
+
+Collider: struct {}
+
+Collider_T: trait {
+	addShape: fun(any) ,
+	applyForce: fun(float, any?, any?, float?, float?, float?) ,
+	applyTorque: fun(float, float?, float?) ,
+	destroy: fun() ,
+	getAABB: fun() -> (float, float?, float?, float?, float?, float?),
+	getAngularDamping: fun() -> (float, float?),
+	getAngularVelocity: fun() -> (float, float?, float?),
+	getFriction: fun() -> float,
+	getJoints: fun() -> any,
+	getLinearDamping: fun() -> (float, float?),
+	getLinearVelocity: fun() -> (float, float?, float?),
+	getLinearVelocityFromLocalPoint: fun(float, float?, float?) -> (float, float?, float?),
+	getLinearVelocityFromWorldPoint: fun(float, float?, float?) -> (float, float?, float?),
+	getLocalCenter: fun() -> (float, float?, float?),
+	getLocalPoint: fun(float, float?, float?) -> (float, float?, float?),
+	getLocalVector: fun(float, float?, float?) -> (float, float?, float?),
+	getMass: fun() -> float,
+	getMassData: fun() -> (float, float?, float?, float?, any?),
+	getOrientation: fun() -> (float, float?, float?, float?),
+	getPose: fun() -> (float, float?, float?, float?, float?, float?, float?),
+	getPosition: fun() -> (float, float?, float?),
+	getRestitution: fun() -> float,
+	getShapes: fun() -> any,
+	getTag: fun() -> str,
+	getUserData: fun() -> any,
+	getWorld: fun() -> any,
+	getWorldPoint: fun(float, float?, float?) -> (float, float?, float?),
+	getWorldVector: fun(float, float?, float?) -> (float, float?, float?),
+	isAwake: fun() -> bool,
+	isGravityIgnored: fun() -> bool,
+	isKinematic: fun() -> bool,
+	isSleepingAllowed: fun() -> bool,
+	removeShape: fun(any) ,
+	setAngularDamping: fun(float, float?) ,
+	setAngularVelocity: fun(float, float?, float?) ,
+	setAwake: fun(bool) ,
+	setFriction: fun(float) ,
+	setGravityIgnored: fun(bool) ,
+	setKinematic: fun(bool) ,
+	setLinearDamping: fun(float, float?) ,
+	setLinearVelocity: fun(float, float?, float?) ,
+	setMass: fun(float) ,
+	setMassData: fun(float, float?, float?, float?, any?) ,
+	setOrientation: fun(float, float?, float?, float?) ,
+	setPose: fun(float, float?, float?, float?, float?, float?, float?) ,
+	setPosition: fun(float, float?, float?) ,
+	setRestitution: fun(float) ,
+	setSleepingAllowed: fun(bool) ,
+	setTag: fun(str) ,
+	setUserData: fun(any) ,
+}
+
+CylinderShape: struct {}
+
+CylinderShape_T: trait {
+	getLength: fun() -> float,
+	getRadius: fun() -> float,
+	setLength: fun(float) ,
+	setRadius: fun(float) ,
+}
+
+DistanceJoint: struct {}
+
+DistanceJoint_T: trait {
+	getAnchors: fun() -> (float, float?, float?, float?, float?, float?),
+	getDistance: fun() -> float,
+	getResponseTime: fun() -> float,
+	getTightness: fun() -> float,
+	setAnchors: fun(float, float?, float?, float?, float?, float?) ,
+	setDistance: fun(float) ,
+	setResponseTime: fun(float) ,
+	setTightness: fun(float) ,
+}
+
+HingeJoint: struct {}
+
+HingeJoint_T: trait {
+	getAnchors: fun() -> (float, float?, float?, float?, float?, float?),
+	getAngle: fun() -> float,
+	getAxis: fun() -> (float, float?, float?),
+	getLimits: fun() -> (float, float?),
+	getLowerLimit: fun() -> float,
+	getUpperLimit: fun() -> float,
+	setAnchor: fun(float, float?, float?) ,
+	setAxis: fun(float, float?, float?) ,
+	setLimits: fun(float, float?) ,
+	setLowerLimit: fun(float) ,
+	setUpperLimit: fun(float) ,
+}
+
+Joint: struct {}
+
+Joint_T: trait {
+	destroy: fun() ,
+	getColliders: fun() -> (Collider, Collider?),
+	getType: fun() -> str,
+	getUserData: fun() -> any,
+	isEnabled: fun() -> bool,
+	setEnabled: fun(bool) ,
+	setUserData: fun(any) ,
+}
+
+Shape: struct {}
+
+Shape_T: trait {
+	destroy: fun() ,
+	getAABB: fun() -> (float, float?, float?, float?, float?, float?),
+	getCollider: fun() -> Collider,
+	getMass: fun(float) -> (float, float?, float?, float?, any?),
+	getOrientation: fun() -> (float, float?, float?, float?),
+	getPosition: fun() -> (float, float?, float?),
+	getType: fun() -> str,
+	getUserData: fun() -> any,
+	isEnabled: fun() -> bool,
+	isSensor: fun() -> bool,
+	setEnabled: fun(bool) ,
+	setOrientation: fun(float, float?, float?, float?) ,
+	setPosition: fun(float, float?, float?) ,
+	setSensor: fun(bool) ,
+	setUserData: fun(any) ,
+}
+
+SliderJoint: struct {}
+
+SliderJoint_T: trait {
+	getAxis: fun() -> (float, float?, float?),
+	getLimits: fun() -> (float, float?),
+	getLowerLimit: fun() -> float,
+	getUpperLimit: fun() -> float,
+	setAxis: fun(float, float?, float?) ,
+	setLimits: fun(float, float?) ,
+	setLowerLimit: fun(float) ,
+	setUpperLimit: fun(float) ,
+}
+
+SphereShape: struct {}
+
+SphereShape_T: trait {
+	getDimensions: fun() -> float,
+	setDimensions: fun(float) ,
+}
+
+World: struct {}
+
+World_T: trait {
+	collide: fun(Shape, Shape?, float?, float?) -> bool,
+	computeOverlaps: fun() ,
+	destroy: fun() ,
+	disableCollisionBetween: fun(str, str?) ,
+	enableCollisionBetween: fun(str, str?) ,
+	getAngularDamping: fun() -> (float, float?),
+	getColliders: fun(any) -> any,
+	getGravity: fun() -> (float, float?, float?),
+	getLinearDamping: fun() -> (float, float?),
+	getResponseTime: fun() -> float,
+	getTightness: fun() -> float,
+	isCollisionEnabledBetween: fun(str, str?) -> bool,
+	isSleepingAllowed: fun() -> bool,
+	newBoxCollider: fun(float, float?, float?, float?, float?, float?) -> Collider,
+	newCapsuleCollider: fun(float, float?, float?, float?, float?) -> Collider,
+	newCollider: fun(float, float?, float?) -> Collider,
+	newCylinderCollider: fun(float, float?, float?, float?, float?) -> Collider,
+	newMeshCollider: fun(any, any?) -> Collider,
+	newSphereCollider: fun(float, float?, float?, float?) -> Collider,
+	overlaps: fun() -> any,
+	raycast: fun(float, float?, float?, float?, float?, float?, any?) ,
+	setAngularDamping: fun(float, float?) ,
+	setGravity: fun(float, float?, float?) ,
+	setLinearDamping: fun(float, float?) ,
+	setResponseTime: fun(float) ,
+	setSleepingAllowed: fun(bool) ,
+	setTightness: fun(float) ,
+	update: fun(float, any?) ,
+}
+
+Channel: struct {}
+
+Channel_T: trait {
+	clear: fun() ,
+	hasRead: fun(float) -> bool,
+	peek: fun() -> (any, bool?),
+	pop: fun(float) -> any,
+	push: fun(any, float?) -> (float, bool?),
+}
+
+Thread: struct {}
+
+Thread_T: trait {
+	getError: fun() -> str,
+	isRunning: fun() -> bool,
+	start: fun(any) ,
+	wait: fun() ,
+}
+

@@ -1,0 +1,60 @@
+#   LÖWR: LöVR bindings for the Wu programming language
+
+#    (C) 2021 Nelson "darltrash" Lopez
+#
+#    This software is provided 'as-is', without any express or implied
+#    warranty.  In no event will the authors be held liable for any damages
+#    arising from the use of this software.
+#
+#    Permission is granted to anyone to use this software for any purpose,
+#    including commercial applications, and to alter it and redistribute it
+#    freely, subject to the following restrictions:
+#
+#    1. The origin of this software must not be misrepresented; you must not
+#        claim that you wrote the original software. If you use this software
+#        in a product, an acknowledgment in the product documentation would be
+#        appreciated but is not required.
+#    2. Altered source versions must be plainly marked as such, and must not be
+#        misrepresented as being the original software.
+#    3. This notice may not be removed or altered from any source distribution.
+
+getVersion: extern fun() -> (float, float?, float?) = "lovr.getVersion"
+
+patch: extern fun(str, any) = "function(str, any)lovr[str]=any;end"
+_requirepatch: extern any = "package.loaded"
+_lovrOrigin: extern any = "lovr"
+
+_requirepatch["lowr.audio"] = _lovrOrigin audio
+import audio
+
+_requirepatch["lowr.data"] = _lovrOrigin data
+import data
+
+_requirepatch["lowr.event"] = _lovrOrigin event
+import event
+
+_requirepatch["lowr.filesystem"] = _lovrOrigin filesystem
+import filesystem
+
+_requirepatch["lowr.graphics"] = _lovrOrigin graphics
+import graphics
+
+_requirepatch["lowr.headset"] = _lovrOrigin headset
+import headset
+
+_requirepatch["lowr.math"] = _lovrOrigin math
+import math
+
+_requirepatch["lowr.physics"] = _lovrOrigin physics
+import physics
+
+_requirepatch["lowr.system"] = _lovrOrigin system
+import system
+
+_requirepatch["lowr.thread"] = _lovrOrigin thread
+import thread
+
+_requirepatch["lowr.timer"] = _lovrOrigin timer
+import timer
+
+import types
