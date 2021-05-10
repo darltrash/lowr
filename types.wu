@@ -13,18 +13,18 @@ Source_T: trait {
 	isEffectEnabled: fun(str) -> bool,
 	isLooping: fun() -> bool,
 	isPlaying: fun() -> bool,
-	pause: fun() ,
+	pause: fun(),
 	play: fun() -> bool,
-	seek: fun(float, str?) ,
-	setDirectivity: fun(float, float?) ,
-	setEffectEnabled: fun(str, bool?) ,
-	setLooping: fun(bool) ,
-	setOrientation: fun(float, float?, float?, float?) ,
-	setPose: fun(float, float?, float?, float?, float?, float?, float?) ,
-	setPosition: fun(float, float?, float?) ,
-	setRadius: fun(float) ,
-	setVolume: fun(float, str?) ,
-	stop: fun() ,
+	seek: fun(float, str?),
+	setDirectivity: fun(float, float?),
+	setEffectEnabled: fun(str, bool?),
+	setLooping: fun(bool),
+	setOrientation: fun(float, float?, float?, float?),
+	setPose: fun(float, float?, float?, float?, float?, float?, float?),
+	setPosition: fun(float, float?, float?),
+	setRadius: fun(float),
+	setVolume: fun(float, str?),
+	stop: fun(),
 	tell: fun(str) -> float,
 }
 
@@ -47,8 +47,8 @@ Image_T: trait {
 	getHeight: fun() -> float,
 	getPixel: fun(float, float?) -> (float, float?, float?, float?),
 	getWidth: fun() -> float,
-	paste: fun(Image, float?, float?, float?, float?, float?, float?) ,
-	setPixel: fun(float, float?, float?, float?, float?, float?) ,
+	paste: fun(Image, float?, float?, float?, float?, float?, float?),
+	setPixel: fun(float, float?, float?, float?, float?, float?),
 }
 
 ModelData: struct {}
@@ -96,8 +96,8 @@ Canvas_T: trait {
 	getWidth: fun() -> float,
 	isStereo: fun() -> bool,
 	newImage: fun(float) -> Image,
-	renderTo: fun(any, any?) ,
-	setTexture: fun(any) ,
+	renderTo: fun(any, any?),
+	setTexture: fun(any),
 }
 
 Font: struct {}
@@ -112,8 +112,8 @@ Font_T: trait {
 	getRasterizer: fun() -> Rasterizer,
 	getWidth: fun(str, float?) -> (float, float?),
 	hasGlyphs: fun(any) -> bool,
-	setLineHeight: fun(float) ,
-	setPixelDensity: fun(float) ,
+	setLineHeight: fun(float),
+	setPixelDensity: fun(float),
 }
 
 Material: struct {}
@@ -123,18 +123,18 @@ Material_T: trait {
 	getScalar: fun(str) -> float,
 	getTexture: fun(str) -> any,
 	getTransform: fun() -> (float, float?, float?, float?, float?),
-	setColor: fun(any, any?, any?, any?, float?) ,
-	setScalar: fun(str, float?) ,
-	setTexture: fun(any, any?) ,
-	setTransform: fun(float, float?, float?, float?, float?) ,
+	setColor: fun(any, any?, any?, any?, float?),
+	setScalar: fun(str, float?),
+	setTexture: fun(any, any?),
+	setTransform: fun(float, float?, float?, float?, float?),
 }
 
 Mesh: struct {}
 
 Mesh_T: trait {
-	attachAttributes: fun(Mesh, any?, any?) ,
-	detachAttributes: fun(Mesh, any?) ,
-	draw: fun(any, any?, float?, float?, float?, float?, float?, float?, float?) ,
+	attachAttributes: fun(Mesh, any?, any?),
+	detachAttributes: fun(Mesh, any?),
+	draw: fun(any, any?, float?, float?, float?, float?, float?, float?, float?),
 	getDrawMode: fun() -> str,
 	getDrawRange: fun() -> (float, float?),
 	getMaterial: fun() -> Material,
@@ -144,24 +144,24 @@ Mesh_T: trait {
 	getVertexFormat: fun() -> any,
 	getVertexMap: fun(any) -> any,
 	isAttributeEnabled: fun(str) -> bool,
-	setAttributeEnabled: fun(str, bool?) ,
-	setDrawMode: fun(str) ,
-	setDrawRange: fun(float, float?) ,
-	setMaterial: fun(Material) ,
-	setVertex: fun(float, float?) ,
-	setVertexAttribute: fun(float, float?, float?) ,
-	setVertexMap: fun(any, float?) ,
-	setVertices: fun(any, any?, any?) ,
+	setAttributeEnabled: fun(str, bool?),
+	setDrawMode: fun(str),
+	setDrawRange: fun(float, float?),
+	setMaterial: fun(Material),
+	setVertex: fun(float, float?),
+	setVertexAttribute: fun(float, float?, float?),
+	setVertexMap: fun(any, float?),
+	setVertices: fun(any, any?, any?),
 }
 
 Model: struct {}
 
 Model_T: trait {
-	animate: fun(any, any?, any?) ,
-	draw: fun(any, any?, float?, float?, float?, float?, float?, float?, float?) ,
+	animate: fun(any, any?, any?),
+	draw: fun(any, any?, float?, float?, float?, float?, float?, float?, float?),
 	getAABB: fun() -> (float, float?, float?, float?, float?, float?),
 	getAnimationCount: fun() -> float,
-	getAnimationDuration: fun() ,
+	getAnimationDuration: fun(),
 	getAnimationName: fun(float) -> str,
 	getMaterial: fun(any) -> Material,
 	getMaterialCount: fun() -> float,
@@ -170,7 +170,7 @@ Model_T: trait {
 	getNodeName: fun(float) -> str,
 	getNodePose: fun(any, any?) -> (float, any?, any?, any?, any?, any?, any?),
 	hasJoints: fun() -> bool,
-	pose: fun(any, any?, any?, any?, any?, any?, any?, any?, any?) ,
+	pose: fun(any, any?, any?, any?, any?, any?, any?, any?, any?),
 }
 
 Shader: struct {}
@@ -180,8 +180,8 @@ Shader_T: trait {
 	hasBlock: fun(str) -> bool,
 	hasUniform: fun(str) -> bool,
 	send: fun(str, any?) -> bool,
-	sendBlock: fun(str, any?, str?) ,
-	sendImage: fun(str, any?, any?, any?, any?, str?) ,
+	sendBlock: fun(str, any?, str?),
+	sendImage: fun(str, any?, any?, any?, any?, str?),
 }
 
 ShaderBlock: struct {}
@@ -208,23 +208,23 @@ Texture_T: trait {
 	getType: fun() -> str,
 	getWidth: fun(float) -> float,
 	getWrap: fun() -> (str, str?),
-	replacePixels: fun(Image, float?, float?, float?, float?) ,
-	setCompareMode: fun(str) ,
-	setFilter: fun(str, float?) ,
-	setWrap: fun(str, str?) ,
+	replacePixels: fun(Image, float?, float?, float?, float?),
+	setCompareMode: fun(str),
+	setFilter: fun(str, float?),
+	setWrap: fun(str, str?),
 }
 
 Curve: struct {}
 
 Curve_T: trait {
-	addPoint: fun(float, float?, float?, float?) ,
+	addPoint: fun(float, float?, float?, float?),
 	evaluate: fun(float) -> (float, float?, float?),
 	getPoint: fun(float) -> (float, float?, float?),
 	getPointCount: fun() -> float,
 	getTangent: fun(float) -> (float, float?, float?),
-	removePoint: fun(float) ,
+	removePoint: fun(float),
 	render: fun(float, float?, float?) -> any,
-	setPoint: fun(float, float?, float?, float?) ,
+	setPoint: fun(float, float?, float?, float?),
 	slice: fun(float, float?) -> Curve,
 }
 
@@ -267,8 +267,8 @@ RandomGenerator_T: trait {
 	getState: fun() -> str,
 	random: fun(float, float?) -> float,
 	randomNormal: fun(float, float?) -> float,
-	setSeed: fun() ,
-	setState: fun(str) ,
+	setSeed: fun(),
+	setState: fun(str),
 }
 
 Vec2: struct {}
@@ -331,16 +331,16 @@ BallJoint_T: trait {
 	getAnchors: fun() -> (float, float?, float?, float?, float?, float?),
 	getResponseTime: fun() -> float,
 	getTightness: fun() -> float,
-	setAnchor: fun(float, float?, float?) ,
-	setResponseTime: fun(float) ,
-	setTightness: fun(float) ,
+	setAnchor: fun(float, float?, float?),
+	setResponseTime: fun(float),
+	setTightness: fun(float),
 }
 
 BoxShape: struct {}
 
 BoxShape_T: trait {
 	getDimensions: fun() -> (float, float?, float?),
-	setDimensions: fun(float, float?, float?) ,
+	setDimensions: fun(float, float?, float?),
 }
 
 CapsuleShape: struct {}
@@ -348,17 +348,17 @@ CapsuleShape: struct {}
 CapsuleShape_T: trait {
 	getLength: fun() -> float,
 	getRadius: fun() -> float,
-	setLength: fun(float) ,
-	setRadius: fun(float) ,
+	setLength: fun(float),
+	setRadius: fun(float),
 }
 
 Collider: struct {}
 
 Collider_T: trait {
-	addShape: fun(any) ,
-	applyForce: fun(float, any?, any?, float?, float?, float?) ,
-	applyTorque: fun(float, float?, float?) ,
-	destroy: fun() ,
+	addShape: fun(any),
+	applyForce: fun(float, any?, any?, float?, float?, float?),
+	applyTorque: fun(float, float?, float?),
+	destroy: fun(),
 	getAABB: fun() -> (float, float?, float?, float?, float?, float?),
 	getAngularDamping: fun() -> (float, float?),
 	getAngularVelocity: fun() -> (float, float?, float?),
@@ -387,24 +387,24 @@ Collider_T: trait {
 	isGravityIgnored: fun() -> bool,
 	isKinematic: fun() -> bool,
 	isSleepingAllowed: fun() -> bool,
-	removeShape: fun(any) ,
-	setAngularDamping: fun(float, float?) ,
-	setAngularVelocity: fun(float, float?, float?) ,
-	setAwake: fun(bool) ,
-	setFriction: fun(float) ,
-	setGravityIgnored: fun(bool) ,
-	setKinematic: fun(bool) ,
-	setLinearDamping: fun(float, float?) ,
-	setLinearVelocity: fun(float, float?, float?) ,
-	setMass: fun(float) ,
-	setMassData: fun(float, float?, float?, float?, any?) ,
-	setOrientation: fun(float, float?, float?, float?) ,
-	setPose: fun(float, float?, float?, float?, float?, float?, float?) ,
-	setPosition: fun(float, float?, float?) ,
-	setRestitution: fun(float) ,
-	setSleepingAllowed: fun(bool) ,
-	setTag: fun(str) ,
-	setUserData: fun(any) ,
+	removeShape: fun(any),
+	setAngularDamping: fun(float, float?),
+	setAngularVelocity: fun(float, float?, float?),
+	setAwake: fun(bool),
+	setFriction: fun(float),
+	setGravityIgnored: fun(bool),
+	setKinematic: fun(bool),
+	setLinearDamping: fun(float, float?),
+	setLinearVelocity: fun(float, float?, float?),
+	setMass: fun(float),
+	setMassData: fun(float, float?, float?, float?, any?),
+	setOrientation: fun(float, float?, float?, float?),
+	setPose: fun(float, float?, float?, float?, float?, float?, float?),
+	setPosition: fun(float, float?, float?),
+	setRestitution: fun(float),
+	setSleepingAllowed: fun(bool),
+	setTag: fun(str),
+	setUserData: fun(any),
 }
 
 CylinderShape: struct {}
@@ -412,8 +412,8 @@ CylinderShape: struct {}
 CylinderShape_T: trait {
 	getLength: fun() -> float,
 	getRadius: fun() -> float,
-	setLength: fun(float) ,
-	setRadius: fun(float) ,
+	setLength: fun(float),
+	setRadius: fun(float),
 }
 
 DistanceJoint: struct {}
@@ -423,10 +423,10 @@ DistanceJoint_T: trait {
 	getDistance: fun() -> float,
 	getResponseTime: fun() -> float,
 	getTightness: fun() -> float,
-	setAnchors: fun(float, float?, float?, float?, float?, float?) ,
-	setDistance: fun(float) ,
-	setResponseTime: fun(float) ,
-	setTightness: fun(float) ,
+	setAnchors: fun(float, float?, float?, float?, float?, float?),
+	setDistance: fun(float),
+	setResponseTime: fun(float),
+	setTightness: fun(float),
 }
 
 HingeJoint: struct {}
@@ -438,29 +438,29 @@ HingeJoint_T: trait {
 	getLimits: fun() -> (float, float?),
 	getLowerLimit: fun() -> float,
 	getUpperLimit: fun() -> float,
-	setAnchor: fun(float, float?, float?) ,
-	setAxis: fun(float, float?, float?) ,
-	setLimits: fun(float, float?) ,
-	setLowerLimit: fun(float) ,
-	setUpperLimit: fun(float) ,
+	setAnchor: fun(float, float?, float?),
+	setAxis: fun(float, float?, float?),
+	setLimits: fun(float, float?),
+	setLowerLimit: fun(float),
+	setUpperLimit: fun(float),
 }
 
 Joint: struct {}
 
 Joint_T: trait {
-	destroy: fun() ,
+	destroy: fun(),
 	getColliders: fun() -> (Collider, Collider?),
 	getType: fun() -> str,
 	getUserData: fun() -> any,
 	isEnabled: fun() -> bool,
-	setEnabled: fun(bool) ,
-	setUserData: fun(any) ,
+	setEnabled: fun(bool),
+	setUserData: fun(any),
 }
 
 Shape: struct {}
 
 Shape_T: trait {
-	destroy: fun() ,
+	destroy: fun(),
 	getAABB: fun() -> (float, float?, float?, float?, float?, float?),
 	getCollider: fun() -> Collider,
 	getMass: fun(float) -> (float, float?, float?, float?, any?),
@@ -470,11 +470,11 @@ Shape_T: trait {
 	getUserData: fun() -> any,
 	isEnabled: fun() -> bool,
 	isSensor: fun() -> bool,
-	setEnabled: fun(bool) ,
-	setOrientation: fun(float, float?, float?, float?) ,
-	setPosition: fun(float, float?, float?) ,
-	setSensor: fun(bool) ,
-	setUserData: fun(any) ,
+	setEnabled: fun(bool),
+	setOrientation: fun(float, float?, float?, float?),
+	setPosition: fun(float, float?, float?),
+	setSensor: fun(bool),
+	setUserData: fun(any),
 }
 
 SliderJoint: struct {}
@@ -484,27 +484,27 @@ SliderJoint_T: trait {
 	getLimits: fun() -> (float, float?),
 	getLowerLimit: fun() -> float,
 	getUpperLimit: fun() -> float,
-	setAxis: fun(float, float?, float?) ,
-	setLimits: fun(float, float?) ,
-	setLowerLimit: fun(float) ,
-	setUpperLimit: fun(float) ,
+	setAxis: fun(float, float?, float?),
+	setLimits: fun(float, float?),
+	setLowerLimit: fun(float),
+	setUpperLimit: fun(float),
 }
 
 SphereShape: struct {}
 
 SphereShape_T: trait {
 	getDimensions: fun() -> float,
-	setDimensions: fun(float) ,
+	setDimensions: fun(float),
 }
 
 World: struct {}
 
 World_T: trait {
 	collide: fun(Shape, Shape?, float?, float?) -> bool,
-	computeOverlaps: fun() ,
-	destroy: fun() ,
-	disableCollisionBetween: fun(str, str?) ,
-	enableCollisionBetween: fun(str, str?) ,
+	computeOverlaps: fun(),
+	destroy: fun(),
+	disableCollisionBetween: fun(str, str?),
+	enableCollisionBetween: fun(str, str?),
 	getAngularDamping: fun() -> (float, float?),
 	getColliders: fun(any) -> any,
 	getGravity: fun() -> (float, float?, float?),
@@ -520,20 +520,20 @@ World_T: trait {
 	newMeshCollider: fun(any, any?) -> Collider,
 	newSphereCollider: fun(float, float?, float?, float?) -> Collider,
 	overlaps: fun() -> any,
-	raycast: fun(float, float?, float?, float?, float?, float?, any?) ,
-	setAngularDamping: fun(float, float?) ,
-	setGravity: fun(float, float?, float?) ,
-	setLinearDamping: fun(float, float?) ,
-	setResponseTime: fun(float) ,
-	setSleepingAllowed: fun(bool) ,
-	setTightness: fun(float) ,
-	update: fun(float, any?) ,
+	raycast: fun(float, float?, float?, float?, float?, float?, any?),
+	setAngularDamping: fun(float, float?),
+	setGravity: fun(float, float?, float?),
+	setLinearDamping: fun(float, float?),
+	setResponseTime: fun(float),
+	setSleepingAllowed: fun(bool),
+	setTightness: fun(float),
+	update: fun(float, any?),
 }
 
 Channel: struct {}
 
 Channel_T: trait {
-	clear: fun() ,
+	clear: fun(),
 	hasRead: fun(float) -> bool,
 	peek: fun() -> (any, bool?),
 	pop: fun(float) -> any,
@@ -545,7 +545,7 @@ Thread: struct {}
 Thread_T: trait {
 	getError: fun() -> str,
 	isRunning: fun() -> bool,
-	start: fun(any) ,
-	wait: fun() ,
+	start: fun(any),
+	wait: fun(),
 }
 

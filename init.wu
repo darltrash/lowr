@@ -18,11 +18,29 @@
 #        misrepresented as being the original software.
 #    3. This notice may not be removed or altered from any source distribution.
 
-getVersion: extern fun() -> (float, float?, float?) = "lovr.getVersion"
+import types {Source, Blob, Image, ModelData, Rasterizer, Sound, Canvas, Font, Material, Mesh, Model, Shader, ShaderBlock, Texture, Curve, Mat4, Quat, RandomGenerator, Vec2, Vec3, Vec4, Vectors, BallJoint, BoxShape, CapsuleShape, Collider, CylinderShape, DistanceJoint, HingeJoint, Joint, Shape, SliderJoint, SphereShape, World, Channel, Thread}
 
-patch: extern fun(str, any) = "function(str, any)lovr[str]=any;end"
+getVersion: extern fun() -> (float, float?, float?) = "lovr.getVersion"
 _requirepatch: extern any = "package.loaded"
 _lovrOrigin: extern any = "lovr"
+
+setConf: extern fun(fun(any)) = "function(any)lovr.conf=any;end"
+setDraw: extern fun(fun()) = "function(any)lovr.draw=any;end"
+setErrhand: extern fun(fun(str, str?) -> any) = "function(any)lovr.errhand=any;end"
+setFocus: extern fun(fun(bool)) = "function(any)lovr.focus=any;end"
+setKeypressed: extern fun(fun(str, float?, bool?)) = "function(any)lovr.keypressed=any;end"
+setKeyreleased: extern fun(fun(str, float?)) = "function(any)lovr.keyreleased=any;end"
+setLoad: extern fun(fun(any)) = "function(any)lovr.load=any;end"
+setLog: extern fun(fun(str, str?, str?)) = "function(any)lovr.log=any;end"
+setMirror: extern fun(fun()) = "function(any)lovr.mirror=any;end"
+setPermission: extern fun(fun(str, bool?)) = "function(any)lovr.permission=any;end"
+setQuit: extern fun(fun() -> bool) = "function(any)lovr.quit=any;end"
+setResize: extern fun(fun(float, float?)) = "function(any)lovr.resize=any;end"
+setRestart: extern fun(fun() -> any) = "function(any)lovr.restart=any;end"
+setRun: extern fun(fun() -> any) = "function(any)lovr.run=any;end"
+setTextinput: extern fun(fun(str, float?)) = "function(any)lovr.textinput=any;end"
+setThreaderror: extern fun(fun(Thread, str?)) = "function(any)lovr.threaderror=any;end"
+setUpdate: extern fun(fun(float)) = "function(any)lovr.update=any;end"
 
 _requirepatch["lowr.audio"] = _lovrOrigin audio
 import audio
@@ -57,4 +75,3 @@ import thread
 _requirepatch["lowr.timer"] = _lovrOrigin timer
 import timer
 
-import types
