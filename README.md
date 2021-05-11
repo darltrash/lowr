@@ -1,6 +1,6 @@
 
 # LÖWR:
-[LöVR](lovr.org) bindings for the [Wu programming language](https://github.com/wu-lang/wu).
+[LöVR](http://lovr.org) bindings for the [Wu programming language](https://github.com/wu-lang/wu).
 
 ## Example:
 ```go
