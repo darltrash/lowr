@@ -76,20 +76,22 @@ local function parseVariants(tab)
     return inputStr, outputStr
 end
 
-local function fakeParseVariants()
-    return "any?...", "any?..."
-end
-
 local function parseFunction(data)
     local input, output = parseVariants(data.variants)
 
-    return data.name .. ": extern fun(".. input ..") ".. output .." = \"" .. data.key .. "\"" 
+    return string.gsub(data.name .. ": extern fun(".. input ..") ".. output .." = \"" .. data.key .. "\"", '[ \t]+%f[\r\n%z]', '')
+end
+
+local function parseCallback(data)
+    local input, output = parseVariants(data.variants)
+
+    return string.gsub("fun(".. input ..") ".. output, '[ \t]+%f[\r\n%z]', '')
 end
 
 local function parseTrait(data)
     local input, output = parseVariants(data.variants)
 
-    return data.name .. ": fun(".. input ..") ".. output
+    return string.gsub(data.name .. ": fun(".. input ..") ".. output, '[ \t]+%f[\r\n%z]', '')
 end
 
 -- Wu devs, please make enums a thing soon =(
@@ -129,19 +131,20 @@ for _, mod in ipairs(lovrapi.modules) do
     ::continue::
 end
 
-local bombcode = "return function(any) any = lovr;lovr.patch = function(str, any)lovr[str] = any;end;end"
-
-local file, initcode = io.open("init.wu", "w+"), license
+local file, initcode = io.open("init.wu", "w+"), license.."import types {"..(table.concat(types, ", ") or "").."}\n\n"
 for _, fun in ipairs(lovrmod.functions) do
     initcode = initcode .. parseFunction(fun) .. "\n"
 end
 initcode = initcode .. [[
-
-patch: extern fun(str, any) = "function(str, any)lovr[str]=any;end"
 _requirepatch: extern any = "package.loaded"
 _lovrOrigin: extern any = "lovr"
 
 ]]
+for _, cal in ipairs(lovrapi.callbacks) do
+    local capitalized = cal.name:sub(1, 1):upper()..cal.name:sub(2)
+    initcode = initcode .. "set"..capitalized..": extern fun("..parseCallback(cal)..") = \"function(any) lovr."..cal.name.."=any; end\"\n"
+end
+initcode = initcode .. "\n"
 for _, mod in ipairs(lovrapi.modules) do
     if mod.name~="lovr" then
         initcode = initcode .. "_requirepatch[\"lowr."..mod.name.."\"] = _lovrOrigin "..mod.name.."\n"
@@ -149,8 +152,6 @@ for _, mod in ipairs(lovrapi.modules) do
         initcode = initcode .. "\n"
     end
 end
-
-initcode = initcode .. "import types"
 file:write(initcode)
 file:close()
 
