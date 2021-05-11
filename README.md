@@ -4,7 +4,7 @@
 
 ## Example:
 ```go
-import lowr
+import libs/lowr
 
 timer: float = 0
 update: fun(delta: float) {
